@@ -29,7 +29,7 @@ public class BinarySearchAlgorithm {
         }
     }
 
-    // 반복문 이진탐색 메서드
+    // 반복방식 이진탐색 메서드
     public static int binarySearchIterative(int[] array, int value) {
     	 int left = 0;
          int right = array.length - 1;
