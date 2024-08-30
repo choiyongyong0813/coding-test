@@ -31,33 +31,25 @@ public class BinarySearchAlgorithm {
 
     // 반복문 이진탐색 메서드
     public static int binarySearchIterative(int[] array, int target) {
-        // 배열의 시작 인덱스와 끝 인덱스를 초기화
-        int left = 0;
-        int right = array.length - 1;
+    	 int left = 0;
+         int right = array.length - 1;
+
+         while (left <= right) {
+             int mid = (left + right) / 2;  // 중간 인덱스 계산
+             if (array[mid] == target) {
+                 return mid;  // 목표값을 찾았을 때
+             } else if (array[mid] < target) {
+                 left = mid + 1;  // 목표값이 오른쪽 절반에 있는 경우
+             } else {
+                 right = mid - 1;  // 목표값이 왼쪽 절반에 있는 경우
+             }
+         }
+
+         return -1;  // 목표값을 찾지 못한 경우
+     }
         
-        // 배열의 시작 인덱스가 끝 인덱스보다 작거나 같을 때까지 반복
-        while (left <= right) {
-            // 현재 탐색 범위의 중간 인덱스를 계산
-            int mid = left + (right - left) / 2;
-            
-            // 중간 인덱스의 값이 목표 값과 같은지 확인
-            if (array[mid] == target) {
-                return mid; // 목표 값을 찾으면 인덱스를 반환
-            }
-            
-            // 목표값이 중간값보다 크면 왼쪽 절반을 무시하고 오른쪽 절반으로 범위를 좁힙
-            if (array[mid] < target) {
-                left = mid + 1;
-            } 
-            // 목표값이 중간값보다 작으면 오른쪽 절반을 무시하고 왼쪽 절반으로 범위를 좁힙
-            else {
-                right = mid - 1;
-            }
-        }
-        
-        // 배열에서 목표 값을 찾지 못했을 경우 -1을 반환
-        return -1;
-    }
+ 
+
 
     // 재귀방식 이진탐색 메서드
     public static int binarySearchRecursive(int[] array, int target, int left, int right) {
