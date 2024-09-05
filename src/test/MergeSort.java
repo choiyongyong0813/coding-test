@@ -1,6 +1,6 @@
 package test;
 
-public class MergeSortOutOfPlace {
+public class MergeSort  {
 
 
 	    public static void main(String[] args) {
